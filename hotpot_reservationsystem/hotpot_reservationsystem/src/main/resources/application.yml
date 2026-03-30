@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: hotpot_reservationsystem
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hotpot_reservation?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB  # 单个文件最大大小
+      max-request-size: 10MB  # 请求最大大小
+
+# MyBatis-Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      table-underline: true
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: org.li.hotpot_reservationsystem.entity
+
+# 服务器配置
+server:
+  port: 8081
+  servlet:
+    context-path: /api
+
+# JWT配置
+jwt:
+  secret: hotpot_reservation_system_secret_key_2024
+  expiration: 86400000 # 24小时，单位：毫秒
+
+# 文件上传配置
+file:
+  upload:
+    path: ./uploads  # 文件上传路径（相对路径，相对于项目根目录）
+    url-prefix: /api/uploads  # 文件访问URL前缀
+
+# 日志配置
+logging:
+  level:
+    org.li.hotpot_reservationsystem: debug
+    com.baomidou.mybatisplus: debug
+

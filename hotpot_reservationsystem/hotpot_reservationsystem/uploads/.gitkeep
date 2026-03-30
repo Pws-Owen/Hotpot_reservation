@@ -1,0 +1,7 @@
+# 此文件用于确保 uploads 目录被 git 跟踪
+# 上传的文件会自动创建在此目录下，按类型和日期组织：
+# - menu/yyyy/MM/dd/  (菜品图片)
+# - avatar/yyyy/MM/dd/  (用户头像)
+# - review/yyyy/MM/dd/  (评论图片)
+# - common/yyyy/MM/dd/  (通用图片)
+
